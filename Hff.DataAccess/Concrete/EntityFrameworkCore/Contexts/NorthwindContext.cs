@@ -13,5 +13,6 @@ namespace Hff.DataAccess.Concrete.EntityFrameworkCore.Contexts
             optionsBuilder.UseSqlServer("server=DESKTOP-3VB3SSC\\SQLEXPRESS01;Database=Northwind;Integrated Security=true");
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

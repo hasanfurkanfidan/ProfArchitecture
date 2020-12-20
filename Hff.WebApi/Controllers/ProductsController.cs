@@ -19,7 +19,7 @@ namespace Hff.WebApi.Controllers
         {
             _productService = productService;
         }
-        [HttpGet]
+        [HttpGet("getall")]
         public async Task<IActionResult> GetList()
         {
             var result = await _productService.GetListAsync();

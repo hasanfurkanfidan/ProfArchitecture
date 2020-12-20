@@ -26,7 +26,7 @@ namespace Hff.Business.Concrete
             }
             catch (Exception ex)
             {
-                return new ErrorResult(ex.Message,"Business.ProductManager.AddAsync");
+                return new ErrorResult("error in addasync ","Business.ProductManager.AddAsync");
             }
         }
 
