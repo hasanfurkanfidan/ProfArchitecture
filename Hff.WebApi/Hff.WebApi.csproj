@@ -4,5 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hff.Business\Hff.Business.csproj" />
+    <ProjectReference Include="..\Hff.Core\Hff.Core.csproj" />
+  </ItemGroup>
+
 
 </Project>
