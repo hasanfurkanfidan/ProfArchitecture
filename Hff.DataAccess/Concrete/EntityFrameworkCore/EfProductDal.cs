@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Hff.Core.DataAccess.EntityFrameworkCore;
+using Hff.DataAccess.Abstract;
+using Hff.DataAccess.Concrete.EntityFrameworkCore.Contexts;
+using Hff.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Hff.DataAccess.Concrete.EntityFrameworkCore
 {
-    public class EfProductDal
+    public class EfProductDal:EfEntityRepositoryBase<Product,NorthwindContext>,IProductDal
     {
     }
 }
