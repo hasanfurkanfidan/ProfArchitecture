@@ -18,8 +18,10 @@ namespace Hff.Business.IOC.Microsoft
             //Business
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<IUserService, UserManager>();
             //DataAccess
             services.AddScoped<IProductDal, EfProductDal>();
+            services.AddScoped<IUserDal, EfUserDal>();
             services.AddScoped<ICategoryDal, EfCategoryDal>();
             services.AddScoped<DbContext, NorthwindContext>();
         }
