@@ -8,6 +8,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Hff.Core.Entities.Concrete;
 
 namespace Hff.DataAccess.Concrete.EntityFrameworkCore
 {

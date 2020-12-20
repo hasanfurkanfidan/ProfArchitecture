@@ -1,4 +1,5 @@
-﻿using Hff.Entities.Concrete;
+﻿using Hff.Core.Entities.Concrete;
+using Hff.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

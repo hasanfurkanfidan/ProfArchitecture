@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hff.Entities.Concrete
+namespace Hff.Core.Entities.Concrete
 {
     public class UserOperationClaim:IEntity
     {

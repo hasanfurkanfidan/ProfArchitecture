@@ -1,4 +1,5 @@
 ﻿using Hff.Core.DataAccess;
+using Hff.Core.Entities.Concrete;
 using Hff.Entities.Concrete;
 using System;
 using System.Collections.Generic;

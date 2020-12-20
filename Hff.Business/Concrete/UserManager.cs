@@ -1,4 +1,5 @@
 ﻿using Hff.Business.Abstract;
+using Hff.Core.Entities.Concrete;
 using Hff.Core.Utilities.Results;
 using Hff.DataAccess.Abstract;
 using Hff.Entities.Concrete;
