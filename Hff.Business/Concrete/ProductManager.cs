@@ -1,4 +1,5 @@
 ﻿using Hff.Business.Abstract;
+using Hff.Core.Utilities.Results;
 using Hff.DataAccess.Abstract;
 using Hff.Entities.Concrete;
 using System;
@@ -16,34 +17,81 @@ namespace Hff.Business.Concrete
             _productDal = productDal;
         }
 
-        public async Task AddAsync(Product product)
+        public async Task<IResult> AddAsync(Product product)
         {
-            await _productDal.AddAsync(product);
+            try
+            {
+                await _productDal.AddAsync(product);
+                return new SuccessResult("Product added successfully");
+            }
+            catch (Exception ex)
+            {
+                return new ErrorResult(ex.Message,"Business.ProductManager.AddAsync");
+            }
         }
 
-        public async Task DeleteAsync(Product product)
+        public async Task<IResult> DeleteAsync(Product product)
         {
-            await _productDal.DeleteAsync(product);
+            try
+            {
+                await _productDal.DeleteAsync(product);
+                return new SuccessResult("Product added successfully");
+            }
+            catch (Exception ex)
+            {
+                return new ErrorResult(ex.Message, "Business.ProductManager.DeleteAsync");
+            }
         }
 
-        public async Task<List<Product>> GetByCategoryAsync(int categoryId)
+        public async Task<IDataResult<Product>> GetByIdAsync(int id)
         {
-            return await _productDal.GetListAsync(p => p.CategoryId == categoryId);
+            try
+            {
+                return new SuccessDataResult<Product>(await _productDal.GetAsync(p => p.ProductId == id));     
+            }
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<Product>(await _productDal.GetAsync(p => p.ProductId == id),ex.Message);
+            }
         }
 
-        public async Task<List<Product>> GetListAsync()
+        public async Task<IDataResult<List<Product>>> GetListAsync()
         {
-            return await _productDal.GetListAsync();
+            try
+            {
+                return new SuccessDataResult<List<Product>>(await _productDal.GetListAsync());
+            }
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<List<Product>>(await _productDal.GetListAsync(),ex.Message);
+            }
         }
 
-        public async Task<List<Product>> GetListByIdAsync(int id)
+        public async Task<IDataResult<List<Product>>> GetListByCategoryAsync(int categoryId)
         {
-            return await _productDal.GetListAsync(p => p.ProductId == id);
+            try
+            {
+                return new SuccessDataResult<List<Product>>(await _productDal.GetListAsync(p=>p.CategoryId==categoryId));
+            }
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<List<Product>>(await _productDal.GetListAsync(p=>p.CategoryId==categoryId), ex.Message);
+            }
         }
 
-        public async Task UpdateAsync(Product product)
+        public async Task<IResult> UpdateAsync(Product product)
         {
-            await _productDal.UpdateAsync(product);
+            try
+            {
+                await _productDal.UpdateAsync(product);
+                return new SuccessResult(
+                    "Product updated successfully"
+                    );
+            }
+            catch (Exception ex)
+            {
+                return new ErrorResult(ex.Message,"Business.ProductManager.UpdateAsync");
+            }
         }
     }
 }

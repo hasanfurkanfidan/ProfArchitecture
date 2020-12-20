@@ -1,4 +1,5 @@
-﻿using Hff.Entities.Concrete;
+﻿using Hff.Core.Utilities.Results;
+using Hff.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,11 +9,11 @@ namespace Hff.Business.Abstract
 {
     public interface IProductService
     {
-        Task<List<Product>> GetListAsync();
-        Task<List<Product>> GetListByIdAsync(int id);
-        Task<List<Product>> GetByCategoryAsync(int categoryId);
-        Task AddAsync(Product product);
-        Task UpdateAsync(Product product);
-        Task DeleteAsync(Product product);
+        Task<IDataResult<List<Product>>> GetListAsync();
+        Task<IDataResult<List<Product>>> GetListByCategoryAsync(int categoryId);
+        Task<IDataResult<Product>> GetByIdAsync(int id);
+        Task<IResult> AddAsync(Product product);
+        Task<IResult> UpdateAsync(Product product);
+        Task<IResult> DeleteAsync(Product product);
     }
 }
