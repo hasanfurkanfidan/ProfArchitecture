@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Hff.Core.Utilities.Security.Jwt
 {
     public interface ITokenHelper
     {
-        AccessToken CreateToken(User user);
+       Task <AccessToken> CreateTokenAsync(User user,List<OperationClaim>claims);
     }
 }
