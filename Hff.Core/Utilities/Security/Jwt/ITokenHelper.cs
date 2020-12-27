@@ -8,6 +8,6 @@ namespace Hff.Core.Utilities.Security.Jwt
 {
     public interface ITokenHelper
     {
-       Task <AccessToken> CreateTokenAsync(User user,List<OperationClaim>claims);
+       AccessToken CreateToken(User user,List<OperationClaim>claims);
     }
 }
